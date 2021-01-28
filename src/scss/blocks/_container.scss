@@ -1,0 +1,18 @@
+%container {
+    //max-width: 1110px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @include respond(desktop) {
+        width: 1120px;
+    }
+
+    @include respond(tab-land) {
+        width: 769px;
+    }
+
+    @include respond(phone) {
+        max-width: 335px;
+        width: unset;
+    }
+}
