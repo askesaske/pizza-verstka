@@ -1,0 +1,65 @@
+.header {
+
+  $e: &;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+
+  background-color: rgba(#25282E, .7);
+  backdrop-filter: blur(10px);
+  height: 69px;
+
+  &__container {
+    @extend %container;
+    display: flex;
+    align-items: center;
+  }
+
+  &__logo {
+
+  }
+
+  &__navigation {
+    margin: 0 auto;
+  }
+
+  &__link {
+    @include text-style(1.8rem, 600, $white-color);
+
+    &:not(:last-child) {
+      margin-right: 70px;
+    }
+  }
+
+  &__time-box {
+    display: flex;
+    align-items: center;
+    margin-right: 40px;
+  }
+
+  &__icon {
+    margin-right: 15px;
+  }
+
+  &__group {
+    #{$e}__title {
+      margin-bottom: 5px;
+    }
+  }
+
+  &__title {
+    @include text-style(1.8rem, 700, $white-color);
+  }
+
+  &__subtitle {
+    @include text-style(1.4rem, 600, #c6c6c6);
+  }
+
+  &__phone-box {
+    display: flex;
+    align-items: center;
+  }
+}

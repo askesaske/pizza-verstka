@@ -1,0 +1,80 @@
+.card-box {
+
+  width: 272px;
+  height: 424px;
+  border-radius: 18px;
+  overflow: hidden;
+  background-color: #ffffff;
+  box-shadow: 0 20px 30px rgba(210, 210, 210, 0.2);
+
+  &__img {
+
+  }
+
+  &__info {
+    padding: 25px 25px 20px;
+    height: 242px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__name {
+    @include text-style(1.8rem, 700, $accent-color);
+    margin-bottom: 15px;
+  }
+
+  &__text {
+    @include text-style(1.4rem, 400, #000000);
+    line-height: 16px;
+  }
+
+  &__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  &__price {
+    @include text-style(2.4rem, 700, $accent-color);
+  }
+
+  &__group {
+    display: flex;
+    align-items: center;
+  }
+
+  &__btn {
+    @include text-style(2.2rem, 600, #f2f2f2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 27px;
+    height: 27px;
+    border-radius: 50%;
+    background-color: $main-color;
+
+
+    &[disabled] {
+      background-color: #DFDFDF;
+      color: $main-color;
+    }
+  }
+
+  &__count {
+    @include text-style(2.2rem, 600, #000000);
+    margin: 0 15px;
+  }
+
+  &__cart-btn {
+    display: block;
+    margin: 0 auto;
+    width: 140px;
+    height: 35px;
+    background-color: $white-color;
+    border-radius: 6px;
+    border: 1px solid $main-color;
+    @include text-style(1.4rem, 700, $main-color);
+  }
+}

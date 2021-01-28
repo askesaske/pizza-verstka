@@ -1,0 +1,84 @@
+.advantages {
+
+  position: relative;
+  padding: 100px 0;
+
+  &__container {
+    @extend %container;
+  }
+
+  &__row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    &:first-child {
+      margin-bottom: 320px;
+    }
+  }
+
+  &__item {
+    width: 320px;
+
+    &:first-child {
+      text-align: right;
+    }
+  }
+
+  &__title {
+    @include text-style(2.4rem, 700, #000000);
+    margin-bottom: 5px;
+    text-transform: uppercase;
+  }
+
+  &__subtitle {
+    @include text-style(1.8rem, 600, #000000);
+    line-height: 21px;
+  }
+
+  &__sushi {
+    position: absolute;
+    width: 421px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__circle {
+    position: absolute;
+    width: 555px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__side-img {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    &--right {
+      right: 0;
+      width: 310px;
+    }
+
+    &--left {
+      left: 0;
+      width: 400px;
+    }
+  }
+
+  &__wave {
+    position: absolute;
+    left: 0;
+    width: 100%;
+
+    &--top {
+      top: -70px;
+    }
+
+    &--bottom {
+      bottom: -90px;
+    }
+  }
+}

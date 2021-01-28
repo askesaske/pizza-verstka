@@ -7,12 +7,386 @@
 
     <title>Точка еды</title>
 
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
     <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 
 </head>
 <body>
 
+<header class="header">
+
+    <div class="header__container">
+
+        <a href="#" class="header__logo">
+            <svg width="170" height="64">
+                <use href="img/icons.svg#logo"></use>
+            </svg>
+        </a>
+
+        <nav class="header__navigation">
+            <a href="#" class="header__link">Преимущества</a>
+            <a href="#" class="header__link">Акции</a>
+            <a href="#" class="header__link">Меню</a>
+        </nav>
+
+        <div class="header__time-box">
+            <svg class="header__icon" width="20" height="20">
+                <use href="img/icons.svg#clock"></use>
+            </svg>
+
+            <div class="header__group">
+                <p class="header__title">Доставка</p>
+                <p class="header__subtitle">11:00-23:00</p>
+            </div>
+        </div>
+
+        <a href="tel: +7 707 518 4004" class="header__phone-box">
+            <svg class="header__icon" width="20" height="20">
+                <use href="img/icons.svg#phone"></use>
+            </svg>
+
+            <span class="header__title">+7 (707)-518-4004</span>
+        </a>
+    </div>
+</header>
+
+<main class="main">
+
+    <section class="main__section welcome-section">
+
+        <div class="welcome-section__container">
+
+            <div class="welcome-section__info">
+
+                <div class="welcome-section__heading">
+                    БЫСТРАЯ ДОСТАВКА <br>
+                    <span>ПИЦЦЫ И СУШИ</span>
+                </div>
+
+                <div class="welcome-section__text">
+                    Значимость этих проблем настолько очевидна, <br>
+                    что постоянное информационно-пропагандистское
+                </div>
+
+                <button class="welcome-section__btn button">Смотреть меню</button>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="main__section advantages">
+
+        <img src="img/waves-1.svg" alt="" class="advantages__wave advantages__wave--top">
+        <img src="img/waves-2.svg" alt="" class="advantages__wave advantages__wave--bottom">
+
+        <img src="img/advantages-sushi.png" alt="" class="advantages__sushi">
+        <img src="img/green-circle.png" alt="" class="advantages__circle">
+
+        <img src="img/wasabi.png" alt="" class="advantages__side-img advantages__side-img--right">
+        <img src="img/sticks.png" alt="" class="advantages__side-img advantages__side-img--left">
+
+        <div class="advantages__container">
+
+            <div class="advantages__row">
+
+                <div class="advantages__item">
+                    <h4 class="advantages__title">Бесплатная доставка</h4>
+                    <p class="advantages__subtitle">
+                        При заказе от 2990 тенге
+                    </p>
+                </div>
+
+                <div class="advantages__item">
+                    <h4 class="advantages__title">КЭшбек 10%</h4>
+                    <p class="advantages__subtitle">
+                        С каждой вашей покупки на ваш <br>
+                        счет начисляются 10 % бонусов от суммы
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="advantages__row">
+
+                <div class="advantages__item">
+                    <h4 class="advantages__title">coca cola в подарок</h4>
+                    <p class="advantages__subtitle">
+                        При самовывозе заказа свыше <br>
+                        2.990 тенге
+                    </p>
+                </div>
+
+                <div class="advantages__item">
+                    <h4 class="advantages__title">Бесплатная доставка</h4>
+                    <p class="advantages__subtitle">
+                        Только в будние дни с 14:00-18:00 <br>
+                        скидка 15% на самовывоз
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section class="main__section sales">
+
+        <div class="swiper-container sales__swiper">
+
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide sales__item">
+
+                    <img src="img/slider-1.png" alt="" class="sales__img">
+
+                    <div class="sales__group">
+                        <h3 class="sales__heading">Скидка <span>20%</span></h3>
+
+                        <p class="sales__accent">для именинника</p>
+                    </div>
+
+                    <div class="sales__text">
+                        Акция действует 3 дня до дня <br>
+                        рождения и 3 дня после
+                    </div>
+
+                </div>
+
+                <div class="swiper-slide sales__item">
+
+                    <img src="img/slider-1.png" alt="" class="sales__img">
+
+                    <div class="sales__group">
+                        <h3 class="sales__heading">Скидка <span>20%</span></h3>
+
+                        <p class="sales__accent">для именинника</p>
+                    </div>
+
+                    <div class="sales__text">
+                        Акция действует 3 дня до дня <br>
+                        рождения и 3 дня после
+                    </div>
+
+                </div>
+
+                <div class="swiper-slide sales__item">
+
+                    <img src="img/slider-1.png" alt="" class="sales__img">
+
+                    <div class="sales__group">
+                        <h3 class="sales__heading">Скидка <span>20%</span></h3>
+
+                        <p class="sales__accent">для именинника</p>
+                    </div>
+
+                    <div class="sales__text">
+                        Акция действует 3 дня до дня <br>
+                        рождения и 3 дня после
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination sales__pagination"></div>
+
+            <!-- Add Arrows -->
+            <div class="swiper-button-next sales__btn sales__btn--next"></div>
+            <div class="swiper-button-prev sales__btn sales__btn--prev"></div>
+
+        </div>
+
+    </section>
+
+    <section class="main__section menu" id="menu">
+
+        <img src="img/wave-3.svg" alt="" class="menu__wave menu__wave--top">
+        <img src="img/wave-4.svg" alt="" class="menu__wave menu__wave--bottom">
+
+        <div class="menu__container">
+
+            <h2 class="menu__heading">МЕНЮ</h2>
+
+            <!-- Tab links -->
+            <div class="menu__tab">
+                <button class="menu__tablinks" onclick="openCity(event, 'pizza')" id="defaultOpen">Пицца</button>
+                <button class="menu__tablinks" onclick="openCity(event, 'rolls')">Роллы</button>
+                <button class="menu__tablinks" onclick="openCity(event, 'sets')">Сеты</button>
+                <button class="menu__tablinks" onclick="openCity(event, 'snacks')">Закуски</button>
+                <button class="menu__tablinks" onclick="openCity(event, 'hot-dogs')">Хот-доги</button>
+                <button class="menu__tablinks" onclick="openCity(event, 'combo-wings')">Комбо крылья</button>
+                <button class="menu__tablinks" onclick="openCity(event, 'combo-sets')">Комбо сеты</button>
+            </div>
+
+            <!-- Tab content -->
+            <div id="pizza" class="menu__tabcontent">
+
+                <div class="menu__grid">
+
+                    <div class="menu__item card-box" v-for="c in 12">
+
+                        <img src="img/pizza-img.png" alt="" class="card-box__img">
+
+                        <div class="card-box__info">
+
+                            <div class="card-box__top">
+
+                                <div class="card-box__name">4 сезона</div>
+
+                                <div class="card-box__text">
+                                    Пицца соус, сыр моцарелла, ветчина, томаты, шампиньоны, брынза
+                                </div>
+
+                            </div>
+
+                            <div class="card-box__bottom">
+
+                                <div class="card-box__row">
+                                    <div class="card-box__price">1700 ₸</div>
+
+                                    <div class="card-box__group">
+                                        <button class="card-box__btn" type="button" disabled>-</button>
+                                        <span class="card-box__count">1</span>
+                                        <button class="card-box__btn" type="button">+</button>
+                                    </div>
+                                </div>
+
+                                <button class="card-box__cart-btn">В корзину</button>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="rolls" class="menu__tabcontent">
+
+                <div class="menu__title">ЖАРЕНЫЕ РОЛЛЫ</div>
+
+                <div class="menu__grid">
+
+                    <div class="menu__item card-box" v-for="c in 5">
+
+                        <img src="img/sushi-img.png" alt="" class="card-box__img">
+
+                        <div class="card-box__info">
+
+                            <div class="card-box__top">
+
+                                <div class="card-box__name">АМЕРИКА РОЛЛ</div>
+
+                                <div class="card-box__text">
+                                    Пицца соус, сыр моцарелла, ветчина, томаты, шампиньоны, брынза
+                                </div>
+
+                            </div>
+
+                            <div class="card-box__bottom">
+
+                                <div class="card-box__row">
+                                    <div class="card-box__price">1700 ₸</div>
+
+                                    <div class="card-box__group">
+                                        <button class="card-box__btn" type="button" disabled>-</button>
+                                        <span class="card-box__count">1</span>
+                                        <button class="card-box__btn" type="button">+</button>
+                                    </div>
+                                </div>
+
+                                <button class="card-box__cart-btn">В корзину</button>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="sets" class="menu__tabcontent"></div>
+            <div id="snacks" class="menu__tabcontent"></div>
+            <div id="hot-dogs" class="menu__tabcontent"></div>
+            <div id="combo-wings" class="menu__tabcontent"></div>
+            <div id="combo-sets" class="menu__tabcontent"></div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<footer class="footer">
+
+    <div class="footer__container">
+
+        <a href="#" class="footer__column">
+            <svg width="170" height="64">
+                <use href="img/icons.svg#logo"></use>
+            </svg>
+        </a>
+
+        <div class="footer__column">
+
+            <div class="footer__title">навигация</div>
+
+            <div class="footer__items">
+                <a href="#" class="footer__item">Преимущества</a>
+                <a href="#" class="footer__item">Акции</a>
+                <a href="#" class="footer__item">Меню</a>
+            </div>
+
+        </div>
+
+        <div class="footer__column">
+
+            <div class="footer__title">контакты</div>
+
+            <div class="footer__items">
+                <div class="footer__item">
+                    Наш адрес:
+                    <span>г. Актау, Шыгыс-2, здание 38</span>
+                </div>
+                <div class="footer__item">
+                    Режим работы:
+                    <span>ВТ-ВС: 11:00-24:00</span>
+                    <span>Понедельник выходной</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer__column">
+            <a href="tel: +7 707 518 4004" class="footer__title">+7 (707)-518-4004</a>
+
+            <div class="footer__socials">
+
+                <a href="#" class="footer__social">
+                    <svg width="40" height="39">
+                        <use href="img/icons.svg#wpp"></use>
+                    </svg>
+                </a>
+
+                <a href="#" class="footer__social">
+                    <svg width="40" height="40">
+                        <use href="img/icons.svg#inst"></use>
+                    </svg>
+                </a>
+
+            </div>
+
+        </div>
+    </div>
+</footer>
+
 <script src="js/app.js"></script>
+
+<script>
+    document.getElementById("defaultOpen").click();
+</script>
 </body>
 </html>

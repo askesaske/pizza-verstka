@@ -1,0 +1,7 @@
+.button {
+  padding: 19px 54px;
+  border-radius: 13px;
+  background-color: $main-color;
+  @include text-style(1.8rem, 700, $white-color);
+  text-transform: uppercase;
+}

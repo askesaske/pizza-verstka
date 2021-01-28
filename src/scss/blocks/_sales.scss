@@ -1,0 +1,97 @@
+.sales {
+
+  background-image: url("../img/sales-bg.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 75px 0;
+
+  &__img {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__item {
+    position: relative;
+  }
+
+  &__group {
+    display: inline-block;
+    text-align: right;
+    text-transform: uppercase;
+
+    position: absolute;
+    top: 100px;
+    right: 135px;
+  }
+
+  &__heading {
+    @include text-style(7.2rem, 700, $white-color);
+    margin-bottom: 40px;
+    z-index: 2;
+
+    span {
+      color: $accent-color;
+    }
+  }
+
+  &__accent {
+    @include text-style(2.4rem, 700, $main-color);
+  }
+
+  &__text {
+    @include text-style(2.4rem, 500, $white-color);
+    line-height: 28px;
+
+    position: absolute;
+    right: 350px;
+    top: 50%;
+    z-index: 2;
+  }
+}
+
+// custom swiper styles
+.swiper-button-next, .swiper-container-rtl .swiper-button-prev {
+  right: 35px;
+}
+
+.swiper-button-prev, .swiper-container-rtl .swiper-button-next {
+  left: 35px;
+}
+
+.swiper-button-prev, .swiper-button-next {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: $main-color;
+}
+
+.swiper-button-prev:after, .swiper-container-rtl .swiper-button-next:after {
+  content: '';
+  background-image: url("../img/icons/chevron.svg");
+  width: 7px;
+  height: 13px;
+}
+
+.swiper-button-next:after, .swiper-container-rtl .swiper-button-prev:after {
+  content: '';
+  background-image: url("../img/icons/chevron.svg");
+  width: 7px;
+  height: 13px;
+  transform: rotate(180deg);
+}
+
+.swiper-pagination-bullet {
+  opacity: .7;
+  background-color: #DFDFDF;
+  width: 15px;
+  height: 15px;
+
+  &-active {
+    opacity: 1;
+    background-color: $main-color;
+  }
+}
+
+.swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
+  margin: 0 8px;
+}

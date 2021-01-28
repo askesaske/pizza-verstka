@@ -4,7 +4,7 @@
     margin-right: auto;
 
     @include respond(desktop) {
-        width: 1120px;
+        width: 1160px;
     }
 
     @include respond(tab-land) {
@@ -12,7 +12,7 @@
     }
 
     @include respond(phone) {
-        max-width: 335px;
+        max-width: 375px;
         width: unset;
     }
 }
