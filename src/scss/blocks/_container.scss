@@ -14,5 +14,6 @@
     @include respond(phone) {
         max-width: 375px;
         width: unset;
+        padding: 0 15px;
     }
 }

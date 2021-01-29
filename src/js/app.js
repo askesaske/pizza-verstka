@@ -285,6 +285,12 @@ function openCity(evt, cityName) {
 new Vue({
     el: '#menu',
     data: {
+        modalToggle: false
+    },
 
+    methods: {
+        callModal() {
+            this.modalToggle = true;
+        }
     },
 });

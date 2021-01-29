@@ -4,4 +4,8 @@
   background-color: $main-color;
   @include text-style(1.8rem, 700, $white-color);
   text-transform: uppercase;
+
+  @include respond(phone) {
+    font-size: 1.4rem;
+  }
 }

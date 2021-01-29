@@ -62,4 +62,27 @@
     display: flex;
     align-items: center;
   }
+
+  &__burger {
+    display: none;
+    margin-left: auto;
+  }
+
+  @include respond(tab-land) {
+    &__burger {
+      display: block;
+    }
+
+    &__navigation {
+      display: none;
+    }
+
+    &__time-box {
+      display: none;
+    }
+
+    &__phone-box {
+      display: none;
+    }
+  }
 }

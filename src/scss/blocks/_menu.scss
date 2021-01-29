@@ -87,5 +87,38 @@
     text-transform: uppercase;
     text-align: center;
     margin-bottom: 40px;
+
+    &--mt70 {
+      margin-top: 70px;
+    }
+  }
+
+  &__modal {
+
+  }
+
+  @include respond(tab-land) {
+    &__wave {
+      &--top {
+        top: -50px;
+      }
+
+      &--bottom {
+        bottom: -50px;
+      }
+    }
+
+    &__tablinks {
+      flex-shrink: 0;
+    }
+
+    &__tab {
+      padding-bottom: 30px;
+      overflow-x: auto;
+    }
+
+    &__grid {
+      justify-content: space-around;
+    }
   }
 }

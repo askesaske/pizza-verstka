@@ -37,4 +37,29 @@
   &__btn {
 
   }
+
+  @include respond(phone) {
+    background-image: url("../img/welcome-section-sm-bg.svg");
+    background-position: center;
+
+    &__info {
+      padding-top: 80px;
+    }
+
+    &__heading {
+      font-size: 3.4rem;
+      line-height: 44px;
+      margin-bottom: 20px;
+    }
+
+    &__text {
+      font-size: 1.4rem;
+      line-height: 16px;
+      margin-bottom: 300px;
+    }
+
+    &__btn {
+      width: 100%;
+    }
+  }
 }

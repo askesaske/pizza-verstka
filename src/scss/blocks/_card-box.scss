@@ -1,11 +1,31 @@
 .card-box {
 
+  $e: &;
+
   width: 272px;
   height: 424px;
   border-radius: 18px;
   overflow: hidden;
   background-color: #ffffff;
   box-shadow: 0 20px 30px rgba(210, 210, 210, 0.2);
+
+
+  &--horizontal {
+    display: flex;
+    align-items: flex-start;
+    width: 469px;
+    height: 160px;
+    box-shadow: 0 0 30px 20px rgba(210, 210, 210, 0.2);
+
+    #{$e}__info {
+      height: 100%;
+      padding: 15px 20px;
+    }
+
+    #{$e}__row {
+      margin-bottom: 0;
+    }
+  }
 
   &__img {
 

@@ -50,8 +50,44 @@
 
             <span class="header__title">+7 (707)-518-4004</span>
         </a>
+
+        <svg class="header__burger" width="30" height="18">
+            <use href="img/icons.svg#burger"></use>
+        </svg>
     </div>
 </header>
+
+<div class="side-menu">
+
+    <div class="side-menu__container">
+
+        <nav class="side-menu__navigation">
+            <a href="#" class="side-menu__link">Преимущества</a>
+            <a href="#" class="side-menu__link">Акции</a>
+            <a href="#" class="side-menu__link">Меню</a>
+        </nav>
+
+        <div class="side-menu__time-box">
+            <svg class="side-menu__icon" width="20" height="20">
+                <use href="img/icons.svg#clock"></use>
+            </svg>
+
+            <div class="side-menu__group">
+                <p class="side-menu__title">Доставка</p>
+                <p class="side-menu__subtitle">11:00-23:00</p>
+            </div>
+        </div>
+
+        <a href="tel: +7 707 518 4004" class="side-menu__phone-box">
+            <svg class="side-menu__icon" width="20" height="20">
+                <use href="img/icons.svg#phone"></use>
+            </svg>
+
+            <span class="side-menu__title">+7 (707)-518-4004</span>
+        </a>
+
+    </div>
+</div>
 
 <main class="main">
 
@@ -86,6 +122,8 @@
         <img src="img/advantages-sushi.png" alt="" class="advantages__sushi">
         <img src="img/green-circle.png" alt="" class="advantages__circle">
 
+        <img src="img/green-cricle-2.svg" alt="" class="advantages__circle-2">
+
         <img src="img/wasabi.png" alt="" class="advantages__side-img advantages__side-img--right">
         <img src="img/sticks.png" alt="" class="advantages__side-img advantages__side-img--left">
 
@@ -101,10 +139,10 @@
                 </div>
 
                 <div class="advantages__item">
-                    <h4 class="advantages__title">КЭшбек 10%</h4>
+                    <h4 class="advantages__title">coca cola в подарок</h4>
                     <p class="advantages__subtitle">
-                        С каждой вашей покупки на ваш <br>
-                        счет начисляются 10 % бонусов от суммы
+                        При самовывозе заказа свыше <br>
+                        2.990 тенге
                     </p>
                 </div>
 
@@ -113,15 +151,15 @@
             <div class="advantages__row">
 
                 <div class="advantages__item">
-                    <h4 class="advantages__title">coca cola в подарок</h4>
+                    <h4 class="advantages__title">КЭшбек 10%</h4>
                     <p class="advantages__subtitle">
-                        При самовывозе заказа свыше <br>
-                        2.990 тенге
+                        С каждой вашей покупки на ваш <br>
+                        счет начисляются 10 % бонусов от суммы
                     </p>
                 </div>
 
                 <div class="advantages__item">
-                    <h4 class="advantages__title">Бесплатная доставка</h4>
+                    <h4 class="advantages__title">Счастливые часы</h4>
                     <p class="advantages__subtitle">
                         Только в будние дни с 14:00-18:00 <br>
                         скидка 15% на самовывоз
@@ -209,6 +247,14 @@
 
         <div class="menu__container">
 
+            <div class="menu__cart cart">
+                <svg width="40" height="35" class="cart__icon">
+                    <use href="img/icons.svg#cart"></use>
+                </svg>
+
+                <div class="cart__count">1</div>
+            </div>
+
             <h2 class="menu__heading">МЕНЮ</h2>
 
             <!-- Tab links -->
@@ -267,6 +313,86 @@
             <div id="rolls" class="menu__tabcontent">
 
                 <div class="menu__title">ЖАРЕНЫЕ РОЛЛЫ</div>
+
+                <div class="menu__grid">
+
+                    <div class="menu__item card-box" v-for="c in 5">
+
+                        <img src="img/sushi-img.png" alt="" class="card-box__img">
+
+                        <div class="card-box__info">
+
+                            <div class="card-box__top">
+
+                                <div class="card-box__name">АМЕРИКА РОЛЛ</div>
+
+                                <div class="card-box__text">
+                                    Пицца соус, сыр моцарелла, ветчина, томаты, шампиньоны, брынза
+                                </div>
+
+                            </div>
+
+                            <div class="card-box__bottom">
+
+                                <div class="card-box__row">
+                                    <div class="card-box__price">1700 ₸</div>
+
+                                    <div class="card-box__group">
+                                        <button class="card-box__btn" type="button" disabled>-</button>
+                                        <span class="card-box__count">1</span>
+                                        <button class="card-box__btn" type="button">+</button>
+                                    </div>
+                                </div>
+
+                                <button class="card-box__cart-btn">В корзину</button>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu__title menu__title--mt70">Запеченные РОЛЛЫ</div>
+
+                <div class="menu__grid">
+
+                    <div class="menu__item card-box" v-for="c in 5">
+
+                        <img src="img/sushi-img.png" alt="" class="card-box__img">
+
+                        <div class="card-box__info">
+
+                            <div class="card-box__top">
+
+                                <div class="card-box__name">АМЕРИКА РОЛЛ</div>
+
+                                <div class="card-box__text">
+                                    Пицца соус, сыр моцарелла, ветчина, томаты, шампиньоны, брынза
+                                </div>
+
+                            </div>
+
+                            <div class="card-box__bottom">
+
+                                <div class="card-box__row">
+                                    <div class="card-box__price">1700 ₸</div>
+
+                                    <div class="card-box__group">
+                                        <button class="card-box__btn" type="button" disabled>-</button>
+                                        <span class="card-box__count">1</span>
+                                        <button class="card-box__btn" type="button">+</button>
+                                    </div>
+                                </div>
+
+                                <button class="card-box__cart-btn">В корзину</button>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu__title menu__title--mt70">холодные РОЛЛЫ</div>
 
                 <div class="menu__grid">
 

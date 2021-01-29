@@ -1,0 +1,48 @@
+.input-box {
+
+  &__label {
+    display: block;
+    @include text-style(2.4rem, 700, $main-color);
+    margin-bottom: 20px;
+  }
+
+  &__group {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 40px;
+  }
+
+  &__input {
+    width: 100%;
+    height: 48px;
+    background-color: $white-color;
+    padding: 0 15px;
+    border-radius: 13px;
+    border: 1px solid #DFDFDF;
+
+    @include text-style(1.4rem, 600, #000000);
+  }
+
+  &__row {
+    display: flex;
+    align-items: center;
+  }
+
+  &__radio {
+    margin-right: 15px;
+  }
+
+  &__text {
+    @include text-style(1.8rem, 600, $main-color);
+  }
+
+  &__textarea {
+    width: 100%;
+    height: 136px;
+    border-radius: 13px;
+    border: 1px solid #DFDFDF;
+    padding: 15px;
+    resize: none;
+    @include text-style(1.4rem, 600, #000000);
+  }
+}
