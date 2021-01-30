@@ -10,6 +10,12 @@
     z-index: 1;
   }
 
+  &__img-sm {
+    display: none;
+    position: relative;
+    z-index: 1;
+  }
+
   &__item {
     position: relative;
   }
@@ -66,6 +72,50 @@
       font-size: 2rem;
     }
   }
+
+  @include respond(phone) {
+
+    &__img {
+      display: none;
+    }
+
+    &__item {
+      padding-top: 130px;
+    }
+
+    &__img-sm {
+      display: block;
+      margin-left: 20px;
+    }
+
+    &__group {
+      top: 0;
+      right: unset;
+      left: 15px;
+      text-align: left;
+    }
+
+    &__heading {
+      font-size: 3.4rem;
+      margin-bottom: 10px;
+    }
+
+    &__accent {
+      font-size: 1.6rem;
+    }
+
+    &__text {
+      font-size: 1.4rem;
+      line-height: 16px;
+      left: 15px;
+      right: 15px;
+      top: 90px;
+
+      br {
+        display: none;
+      }
+    }
+  }
 }
 
 // custom swiper styles
@@ -75,6 +125,13 @@
 
 .swiper-button-prev, .swiper-container-rtl .swiper-button-next {
   left: 35px;
+}
+
+.swiper-button-next, .swiper-container-rtl .swiper-button-prev,
+.swiper-button-prev, .swiper-container-rtl .swiper-button-next {
+  @include respond(phone) {
+    display: none;
+  }
 }
 
 .swiper-button-prev, .swiper-button-next {
@@ -109,8 +166,21 @@
     opacity: 1;
     background-color: $main-color;
   }
+
+  @include respond(phone) {
+    width: 12px;
+    height: 12px;
+  }
 }
 
 .swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
   margin: 0 8px;
+
+  @include respond(phone) {
+    margin: 0 12px;
+  }
+}
+
+.swiper-pagination-fraction, .swiper-pagination-custom, .swiper-container-horizontal > .swiper-pagination-bullets  {
+  bottom: 0;
 }

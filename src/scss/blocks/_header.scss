@@ -28,9 +28,14 @@
 
   &__link {
     @include text-style(1.8rem, 600, $white-color);
+    transition: all .1s;
 
     &:not(:last-child) {
       margin-right: 70px;
+    }
+
+    &:hover {
+      color: $main-color;
     }
   }
 

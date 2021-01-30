@@ -41,6 +41,7 @@
 
   &__name {
     @include text-style(1.8rem, 700, $accent-color);
+    text-transform: uppercase;
     margin-bottom: 15px;
   }
 
@@ -96,5 +97,85 @@
     border-radius: 6px;
     border: 1px solid $main-color;
     @include text-style(1.4rem, 700, $main-color);
+
+    transition: all .1s;
+
+    &:hover {
+      background-color: $main-color;
+      color: $white-color;
+    }
+  }
+
+  @include respond(phone) {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    height: 145px;
+    box-shadow: 0 0 30px 20px rgba(210, 210, 210, 0.2);
+
+    &--horizontal {
+      height: 81px;
+
+      #{$e}__img {
+        width: 84px;
+        height: 82px;
+      }
+
+      #{$e}__info {
+        padding: 12px 20px;
+        width: 100%;
+      }
+
+      #{$e}__name {
+        margin-bottom: 0;
+      }
+
+      #{$e}__text {
+        display: none;
+      }
+    }
+
+    &__img {
+      width: 150px;
+      height: 146px;
+    }
+
+    &__info {
+      height: 100%;
+      padding: 15px 20px;
+    }
+
+    &__row {
+      margin-bottom: 0;
+    }
+
+    &__name {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+    }
+
+    &__text {
+      font-size: 1.2rem;
+      line-height: 14px;
+    }
+
+    &__price {
+      font-size: 1.8rem;
+    }
+
+    &__btn {
+      font-size: 1.8rem;
+      width: 22px;
+      height: 22px;
+    }
+
+    &__count {
+      font-size: 1.8rem;
+      margin: 0 10px;
+    }
+
+    &__cart-btn {
+      display: none;
+    }
   }
 }

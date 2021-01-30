@@ -17,6 +17,7 @@
 // blocks
 @import "blocks/container";
 @import "blocks/header";
+@import "blocks/main";
 @import "blocks/welcome-section";
 @import "blocks/button";
 @import "blocks/advantages";
@@ -34,6 +35,11 @@ html, body {
     font-size: 62.5%;
     font-family: $base-font;
     //scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+    overflow-y: visible;
 }
 
 img {

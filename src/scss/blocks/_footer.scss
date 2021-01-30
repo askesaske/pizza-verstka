@@ -23,6 +23,13 @@
 
   &__items {
 
+    a {
+      transition: all .1s;
+
+      &:hover {
+        color: $main-color;
+      }
+    }
   }
 
   &__item {
@@ -71,6 +78,49 @@
         grid-row: 2 / 3;
         grid-column: 2 / 3;
         text-align: right;
+      }
+    }
+  }
+
+  @include respond(phone) {
+    &__column {
+
+      &:first-child {
+        svg {
+          width: 140px;
+        }
+      }
+
+      &:last-child {
+        padding-top: 25px;
+      }
+    }
+
+    &__title {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    &__items {
+
+    }
+
+    &__item {
+      font-size: 1.4rem;
+
+      &:not(:last-child) {
+        margin-bottom: 15px;
+      }
+
+      span {
+        margin-top: 5px;
+      }
+    }
+
+    &__social {
+
+      &:not(:last-child) {
+        margin-left: 15px;
       }
     }
   }

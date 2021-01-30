@@ -1,5 +1,7 @@
 .input-box {
 
+  $e: &;
+
   &__label {
     display: block;
     @include text-style(2.4rem, 700, $main-color);
@@ -21,6 +23,10 @@
     border: 1px solid #DFDFDF;
 
     @include text-style(1.4rem, 600, #000000);
+
+    &:focus {
+      border-color: $main-color;
+    }
   }
 
   &__row {
@@ -29,6 +35,18 @@
   }
 
   &__radio {
+    display: none;
+
+    &:checked ~ #{$e}__custom-radio {
+      background-color: $main-color;
+    }
+  }
+
+  &__custom-radio {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 1px solid $main-color;
     margin-right: 15px;
   }
 
@@ -44,5 +62,31 @@
     padding: 15px;
     resize: none;
     @include text-style(1.4rem, 600, #000000);
+  }
+
+  @include respond(phone) {
+    &__label {
+      font-size: 1.8rem;
+    }
+
+    &__group {
+      display: block;
+
+      & > * {
+        &:nth-child(3) {
+          margin-top: 40px !important;
+        }
+      }
+    }
+
+    &__input {
+      &:not(:last-child) {
+        margin-bottom: 20px;
+      }
+    }
+
+    &__row {
+      margin-bottom: 20px;
+    }
   }
 }
