@@ -20,7 +20,7 @@
 
     <div class="header__container">
 
-        <a href="#" class="header__logo">
+        <a href="index.html" class="header__logo">
             <svg width="170" height="64">
                 <use href="img/icons.svg#logo"></use>
             </svg>
@@ -90,10 +90,9 @@
 </div>
 
 <main class="main" id="app">
+    <section class="main__order-box order-box">
 
-    <div class="main__order-box order-box">
-
-        <img src="img/wave-5.svg" alt="" class="order-box__wave">
+        <!--        <img src="img/wave-5.svg" alt="" class="order-box__wave">-->
 
         <div class="order-box__container">
 
@@ -101,7 +100,7 @@
                 Оформление заказа
             </div>
 
-            <div class="order-box__box">
+            <form class="order-box__box">
 
                 <div class="order-box__row">
 
@@ -111,15 +110,15 @@
                             <label class="input-box__label">Ваши контактные данные</label>
 
                             <div class="input-box__group">
-                                <input type="text" class="input-box__input" placeholder="Имя">
-                                <input type="text" class="input-box__input" placeholder="Телефон">
+                                <input type="text" class="input-box__input" placeholder="Имя" v-model="name">
+                                <input type="text" class="input-box__input" placeholder="Телефон" v-model="phone">
                                 <label class="input-box__row">
-                                    <input type="radio" class="input-box__radio" name="deliver-method">
+                                    <input type="radio" class="input-box__radio" name="deliver-method" value="Доставка курьером" v-model="delivery">
                                     <span class="input-box__custom-radio"></span>
                                     <div class="input-box__text">Доставка курьером</div>
                                 </label>
                                 <label class="input-box__row">
-                                    <input type="radio" class="input-box__radio" name="deliver-method">
+                                    <input type="radio" class="input-box__radio" name="deliver-method" value="Самовызов" v-model="delivery">
                                     <span class="input-box__custom-radio"></span>
                                     <div class="input-box__text">Самовызов</div>
                                 </label>
@@ -127,41 +126,53 @@
                         </div>
 
                         <div class="order-box__input-box input-box">
-                            <label class="input-box__label">Адрес доставки</label>
-                            <input type="text" class="input-box__input">
+                            <label class="input-box__label"
+                                   :class="delivery === 'Самовызов' ? 'input-box__label--disabled' : ''">Адрес доставки</label>
+                            <input type="text"
+                                   class="input-box__input"
+                                   v-model="address"
+                                   :disabled="delivery === 'Самовызов'">
                         </div>
 
                         <div class="order-box__input-box input-box">
                             <label class="input-box__label">Дата доставки</label>
 
                             <div class="input-box__group">
-                                <input type="date" class="input-box__input" placeholder="10-12-2020">
-                                <input type="time" class="input-box__input" placeholder="Время">
+                                <input type="date"
+                                       class="input-box__input"
+                                       placeholder="10-12-2020"
+                                       v-model="date"
+                                       :disabled="delivery === 'Самовызов'">
+                                <input type="time"
+                                       class="input-box__input"
+                                       placeholder="Время"
+                                       v-model="time"
+                                       :disabled="delivery === 'Самовызов'">
                             </div>
                         </div>
 
-<!--                        <div class="order-box__input-box input-box">-->
-<!--                            <label class="input-box__label">Оплата заказа</label>-->
+                        <!--                        <div class="order-box__input-box input-box">-->
+                        <!--                            <label class="input-box__label">Оплата заказа</label>-->
 
-<!--                            <div class="input-box__group">-->
-<!--                                <label class="input-box__row">-->
-<!--                                    <input type="radio" class="input-box__radio" name="deliver-method">-->
-<!--                                    <div class="input-box__text">Наличными</div>-->
-<!--                                </label>-->
-<!--                                <label class="input-box__row">-->
-<!--                                    <input type="radio" class="input-box__radio" name="deliver-method">-->
-<!--                                    <div class="input-box__text">Банквоской картой</div>-->
-<!--                                </label>-->
-<!--                            </div>-->
-<!--                        </div>-->
+                        <!--                            <div class="input-box__group">-->
+                        <!--                                <label class="input-box__row">-->
+                        <!--                                    <input type="radio" class="input-box__radio" name="deliver-method">-->
+                        <!--                                    <div class="input-box__text">Наличными</div>-->
+                        <!--                                </label>-->
+                        <!--                                <label class="input-box__row">-->
+                        <!--                                    <input type="radio" class="input-box__radio" name="deliver-method">-->
+                        <!--                                    <div class="input-box__text">Банквоской картой</div>-->
+                        <!--                                </label>-->
+                        <!--                            </div>-->
+                        <!--                        </div>-->
 
                         <div class="order-box__input-box input-box">
                             <label class="input-box__label">Комментарий к заказу</label>
 
-                            <textarea class="input-box__textarea"></textarea>
+                            <textarea class="input-box__textarea" v-model="comment"></textarea>
                         </div>
 
-                        <button class="order-box__btn order-box__btn--bottom">ОФОРМИТЬ ЗАКАЗ</button>
+                        <button class="order-box__btn order-box__btn--bottom" @click.prevent="sendOrder">ОФОРМИТЬ ЗАКАЗ</button>
 
                     </div>
 
@@ -174,7 +185,8 @@
 
                             <div class="order-box__list">
 
-                                <div class="order-box__item card-box card-box--horizontal" v-for="(item,key) in cardItems">
+                                <div class="order-box__item card-box card-box--horizontal"
+                                     v-for="(item,key) in cardItems">
 
                                     <img src="img/horizontal-pizza.png" alt="" class="card-box__img">
 
@@ -196,9 +208,14 @@
                                                 <div class="card-box__price">{{item.price}} ₸</div>
 
                                                 <div class="card-box__group">
-                                                    <button class="card-box__btn" type="button" @click="removePizza(key)">-</button>
+                                                    <a href="order.html" class="card-box__btn" type="button"
+                                                            @click="removePizzaFromCard(key)">-
+                                                    </a>
                                                     <span class="card-box__count">{{item.amount}}</span>
-                                                    <button class="card-box__btn" type="button" @click="addPizza(key,item.description,item.price)">+</button>
+                                                    <a href="order.html" class="card-box__btn" type="button"
+                                                            @click="addPizzaForCard(key,item.description,item.price)">
+                                                        +
+                                                    </a>
                                                 </div>
                                             </div>
                                         </div>
@@ -210,42 +227,45 @@
                         <div class="order-box__bottom">
 
                             <div class="order-box__price">
-                                Итого: {{totalPrice}} тг.
+                                Итого: {{ totalPrice }} тг.
                             </div>
 
-                            <button class="order-box__btn order-box__btn--top" @click="sendOrder">ОФОРМИТЬ ЗАКАЗ</button>
+                            <button class="order-box__btn order-box__btn--top" @click.prevent="sendOrder">ОФОРМИТЬ ЗАКАЗ
+                            </button>
                         </div>
                     </div>
                 </div>
+            </form>
+        </div>
+
+
+    </section>
+
+    <div class="alert" :class="alertShow ? 'alert--show' : ''">
+        <div class="alert__box">
+
+            <svg width="17" height="17" class="alert__close" @click="alertClose">
+                <use href="img/icons.svg#close"></use>
+            </svg>
+
+            <svg class="alert__icon" width="102" height="102">
+                <use href="img/icons.svg#checkmark"></use>
+            </svg>
+
+            <div class="alert__title">
+                Спасибо!
+            </div>
+
+            <div class="alert__subtitle">
+                Ваш заказ принят
+            </div>
+
+            <div class="alert__text">
+                Мы свяжемся с вами в ближайшее время.
             </div>
         </div>
     </div>
 </main>
-
-<div class="alert">
-    <div class="alert__box">
-
-        <svg width="17" height="17" class="alert__close">
-            <use href="img/icons.svg#close"></use>
-        </svg>
-
-        <svg class="alert__icon" width="102" height="102">
-            <use href="img/icons.svg#checkmark"></use>
-        </svg>
-
-        <div class="alert__title">
-            Спасибо!
-        </div>
-
-        <div class="alert__subtitle">
-            Ваш заказ принят
-        </div>
-
-        <div class="alert__text">
-            Мы свяжемся с вами в ближайшее время.
-        </div>
-    </div>
-</div>
 
 <footer class="footer">
 

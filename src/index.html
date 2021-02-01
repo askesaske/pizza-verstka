@@ -277,7 +277,7 @@
 
                 <div class="menu__grid">
 
-                    <div class="menu__item card-box" v-for="(pizza, index) in pizzaList">
+                    <div class="menu__item card-box" v-for="(item, index) in items">
 
                         <img src="img/pizza-img.png" alt="" class="card-box__img">
 
@@ -285,10 +285,10 @@
 
                             <div class="card-box__top">
 
-                                <div class="card-box__name">{{ pizza.name }}</div>
+                                <div class="card-box__name">{{ item.name }}</div>
 
                                 <div class="card-box__text">
-                                    {{ pizza.desc }}
+                                    {{ item.desc }}
                                 </div>
 
                             </div>
@@ -296,16 +296,18 @@
                             <div class="card-box__bottom">
 
                                 <div class="card-box__row">
-                                    <div class="card-box__price">{{ pizza.price }} ₸</div>
+                                    <div class="card-box__price">{{ item.price }} ₸</div>
 
                                     <div class="card-box__group">
-                                        <button class="card-box__btn" type="button" @click="removePizza(pizza.name)">-</button>
-                                        <span class="card-box__count">{{ pizza.amount }}</span>
-                                        <button class="card-box__btn" type="button" @click="addPizza(pizza.name, pizza.desc, pizza.price)">+</button>
+                                        <button class="card-box__btn" type="button" @click="removePizza(item.name)" :disabled="item.amount === 0">-</button>
+                                        <span class="card-box__count">{{ item.amount }}</span>
+                                        <button class="card-box__btn" type="button"
+                                                @click="addPizza(item.name, item.desc, item.price)">+
+                                        </button>
                                     </div>
                                 </div>
 
-                                <button class="card-box__cart-btn">В корзину</button>
+                                <a href="order.html" class="card-box__cart-btn">В корзину</a>
 
                             </div>
 
@@ -454,7 +456,7 @@
 
     <div class="footer__container">
 
-        <a href="#" class="footer__column">
+        <a href="index.html" class="footer__column">
             <svg width="170" height="64">
                 <use href="img/icons.svg#logo"></use>
             </svg>
