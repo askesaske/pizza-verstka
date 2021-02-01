@@ -240,7 +240,7 @@
 
     </section>
 
-    <section class="main__section menu" id="menu">
+    <section class="main__section menu" id="app">
 
         <img src="img/wave-3.svg" alt="" class="menu__wave menu__wave--top">
         <img src="img/wave-4.svg" alt="" class="menu__wave menu__wave--bottom">
@@ -273,7 +273,7 @@
 
                 <div class="menu__grid">
 
-                    <div class="menu__item card-box" v-for="c in 12">
+                    <div class="menu__item card-box" v-for="(pizza, index) in pizzaList">
 
                         <img src="img/pizza-img.png" alt="" class="card-box__img">
 
@@ -281,10 +281,10 @@
 
                             <div class="card-box__top">
 
-                                <div class="card-box__name">4 сезона</div>
+                                <div class="card-box__name">{{ pizza.name }}</div>
 
                                 <div class="card-box__text">
-                                    Пицца соус, сыр моцарелла, ветчина, томаты, шампиньоны, брынза
+                                    {{ pizza.desc }}
                                 </div>
 
                             </div>
@@ -292,12 +292,12 @@
                             <div class="card-box__bottom">
 
                                 <div class="card-box__row">
-                                    <div class="card-box__price">1700 ₸</div>
+                                    <div class="card-box__price">{{ pizza.price }} ₸</div>
 
                                     <div class="card-box__group">
-                                        <button class="card-box__btn" type="button" disabled>-</button>
-                                        <span class="card-box__count">1</span>
-                                        <button class="card-box__btn" type="button">+</button>
+                                        <button class="card-box__btn" type="button" @click="removePizza(pizza.name)">-</button>
+                                        <span class="card-box__count">{{ pizza.amount }}</span>
+                                        <button class="card-box__btn" type="button" @click="addPizza(pizza.name, pizza.desc, pizza.price)">+</button>
                                     </div>
                                 </div>
 

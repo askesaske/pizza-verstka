@@ -53,7 +53,7 @@
     </div>
 </header>
 
-<main class="main">
+<main class="main" id="app">
 
     <div class="main__order-box order-box">
 
@@ -133,7 +133,7 @@
 
                             <div class="order-box__list">
 
-                                <div class="order-box__item card-box card-box--horizontal">
+                                <div class="order-box__item card-box card-box--horizontal" v-for="(item,key) in cardItems">
 
                                     <img src="img/horizontal-pizza.png" alt="" class="card-box__img">
 
@@ -141,10 +141,10 @@
 
                                         <div class="card-box__top">
 
-                                            <div class="card-box__name">4 сезона</div>
+                                            <div class="card-box__name">{{key}}</div>
 
                                             <div class="card-box__text">
-                                                Пицца соус, сыр моцарелла, ветчина, томаты, шампиньоны, брынза
+                                                {{item.description}}
                                             </div>
 
                                         </div>
@@ -152,167 +152,27 @@
                                         <div class="card-box__bottom">
 
                                             <div class="card-box__row">
-                                                <div class="card-box__price">1700 ₸</div>
+                                                <div class="card-box__price">{{item.price}} ₸</div>
 
                                                 <div class="card-box__group">
-                                                    <button class="card-box__btn" type="button" disabled>-</button>
-                                                    <span class="card-box__count">1</span>
-                                                    <button class="card-box__btn" type="button">+</button>
+                                                    <button class="card-box__btn" type="button" @click="removePizza(key)">-</button>
+                                                    <span class="card-box__count">{{item.amount}}</span>
+                                                    <button class="card-box__btn" type="button" @click="addPizza(key,item.description,item.price)">+</button>
                                                 </div>
                                             </div>
-
                                         </div>
-
                                     </div>
-
                                 </div>
-
-                                <div class="order-box__item card-box card-box--horizontal">
-
-                                    <img src="img/horizontal-pizza.png" alt="" class="card-box__img">
-
-                                    <div class="card-box__info">
-
-                                        <div class="card-box__top">
-
-                                            <div class="card-box__name">4 сезона</div>
-
-                                            <div class="card-box__text">
-                                                Пицца соус, сыр моцарелла, ветчина, томаты, шампиньоны, брынза
-                                            </div>
-
-                                        </div>
-
-                                        <div class="card-box__bottom">
-
-                                            <div class="card-box__row">
-                                                <div class="card-box__price">1700 ₸</div>
-
-                                                <div class="card-box__group">
-                                                    <button class="card-box__btn" type="button" disabled>-</button>
-                                                    <span class="card-box__count">1</span>
-                                                    <button class="card-box__btn" type="button">+</button>
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                                <div class="order-box__item card-box card-box--horizontal">
-
-                                    <img src="img/horizontal-pizza.png" alt="" class="card-box__img">
-
-                                    <div class="card-box__info">
-
-                                        <div class="card-box__top">
-
-                                            <div class="card-box__name">4 сезона</div>
-
-                                            <div class="card-box__text">
-                                                Пицца соус, сыр моцарелла, ветчина, томаты, шампиньоны, брынза
-                                            </div>
-
-                                        </div>
-
-                                        <div class="card-box__bottom">
-
-                                            <div class="card-box__row">
-                                                <div class="card-box__price">1700 ₸</div>
-
-                                                <div class="card-box__group">
-                                                    <button class="card-box__btn" type="button" disabled>-</button>
-                                                    <span class="card-box__count">1</span>
-                                                    <button class="card-box__btn" type="button">+</button>
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                                <div class="order-box__item card-box card-box--horizontal">
-
-                                    <img src="img/horizontal-pizza.png" alt="" class="card-box__img">
-
-                                    <div class="card-box__info">
-
-                                        <div class="card-box__top">
-
-                                            <div class="card-box__name">4 сезона</div>
-
-                                            <div class="card-box__text">
-                                                Пицца соус, сыр моцарелла, ветчина, томаты, шампиньоны, брынза
-                                            </div>
-
-                                        </div>
-
-                                        <div class="card-box__bottom">
-
-                                            <div class="card-box__row">
-                                                <div class="card-box__price">1700 ₸</div>
-
-                                                <div class="card-box__group">
-                                                    <button class="card-box__btn" type="button" disabled>-</button>
-                                                    <span class="card-box__count">1</span>
-                                                    <button class="card-box__btn" type="button">+</button>
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                                <div class="order-box__item card-box card-box--horizontal">
-
-                                    <img src="img/horizontal-pizza.png" alt="" class="card-box__img">
-
-                                    <div class="card-box__info">
-
-                                        <div class="card-box__top">
-
-                                            <div class="card-box__name">4 сезона</div>
-
-                                            <div class="card-box__text">
-                                                Пицца соус, сыр моцарелла, ветчина, томаты, шампиньоны, брынза
-                                            </div>
-
-                                        </div>
-
-                                        <div class="card-box__bottom">
-
-                                            <div class="card-box__row">
-                                                <div class="card-box__price">1700 ₸</div>
-
-                                                <div class="card-box__group">
-                                                    <button class="card-box__btn" type="button" disabled>-</button>
-                                                    <span class="card-box__count">1</span>
-                                                    <button class="card-box__btn" type="button">+</button>
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
                             </div>
                         </div>
 
                         <div class="order-box__bottom">
 
                             <div class="order-box__price">
-                                Итого: 7990 тг.
+                                Итого: {{totalPrice}} тг.
                             </div>
 
-                            <button class="order-box__btn">ОФОРМИТЬ ЗАКАЗ</button>
+                            <button class="order-box__btn" @click="sendOrder">ОФОРМИТЬ ЗАКАЗ</button>
                         </div>
                     </div>
                 </div>
