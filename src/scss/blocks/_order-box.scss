@@ -83,6 +83,16 @@
     @include text-style(1.8rem, 700, $white-color);
     border-radius: 13px;
     background-color: $main-color;
+
+    &--bottom {
+      display: none;
+    }
+
+    transition: all .1s;
+
+    &:hover {
+      box-shadow: 0 1px 10px 2px #FF7916;
+    }
   }
 
   &__wave {
@@ -90,5 +100,100 @@
     bottom: -92px;
     left: 0;
     width: 100%;
+  }
+
+  @include respond(tab-land) {
+    &__wave {
+      bottom: -65px;
+    }
+
+    &__row {
+      flex-direction: column-reverse;
+      align-items: center;
+    }
+
+    &__list {
+      padding-right: 35px;
+    }
+
+    &__bottom {
+      padding: 0 35px;
+    }
+
+    &__btn {
+      &--top {
+        display: none;
+      }
+
+      &--bottom {
+        display: block;
+      }
+    }
+
+    &__price {
+      margin-bottom: 0;
+    }
+
+    &__details {
+      margin-bottom: 50px;
+    }
+
+    &__personal-info {
+      margin-right: 0;
+      width: 540px;
+    }
+  }
+
+  @include respond(phone) {
+    padding-top: 110px;
+
+    &__wave {
+      transform: scale(3);
+      bottom: -30px;
+    }
+
+    &__heading {
+      font-size: 3.4rem;
+      line-height: 41px;
+      margin-bottom: 40px;
+    }
+
+    &__box {
+      padding: 0;
+      border-radius: 0;
+      box-shadow: none;
+      background-color: $white-color;
+    }
+
+    &__top {
+      margin-bottom: 30px;
+    }
+
+    &__title {
+      padding-left: 0;
+    }
+
+    &__list {
+      padding: 0;
+      max-height: 285px;
+    }
+
+    &__details {
+      width: 100%;
+    }
+
+    &__item {
+      &:not(:last-child) {
+        margin-bottom: 21px;
+      }
+    }
+
+    &__bottom {
+      padding: 0;
+    }
+
+    &__personal-info {
+      width: 100%;
+    }
   }
 }

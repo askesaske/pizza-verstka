@@ -52,4 +52,18 @@
   &__text {
     @include text-style(1.8rem, 500, #000000);
   }
+
+  @include respond(phone) {
+    &__box {
+      width: 320px;
+      height: 265px;
+      padding-top: 30px;
+    }
+
+    &__icon {
+      width: 64px;
+      height: 64px;
+      margin-bottom: 10px;
+    }
+  }
 }

@@ -44,6 +44,10 @@
     transform: translate(-50%, -50%);
   }
 
+  &__sushi-half {
+    display: none;
+  }
+
   &__circle {
     position: absolute;
     width: 555px;
@@ -119,12 +123,12 @@
   }
 
   @include respond(phone) {
-    overflow: hidden;
     height: 450px;
 
     &__wave {
+      transform: scale(3);
       &--top {
-        top: -18px;
+        top: 0;
       }
 
       &--bottom {
@@ -137,6 +141,15 @@
       top: 50%;
       right: -35%;
       left: unset;
+      transform: translateY(-50%);
+      display: none;
+    }
+
+    &__sushi-half {
+      display: block;
+      position: absolute;
+      top: 50%;
+      right: 0;
       transform: translateY(-50%);
     }
 

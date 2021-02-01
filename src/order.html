@@ -50,8 +50,44 @@
 
             <span class="header__title">+7 (707)-518-4004</span>
         </a>
+
+        <svg class="header__burger" width="30" height="18">
+            <use href="img/icons.svg#burger"></use>
+        </svg>
     </div>
 </header>
+
+<div class="side-menu">
+
+    <div class="side-menu__container">
+
+        <nav class="side-menu__navigation">
+            <a href="#" class="side-menu__link">Преимущества</a>
+            <a href="#" class="side-menu__link">Акции</a>
+            <a href="#" class="side-menu__link">Меню</a>
+        </nav>
+
+        <div class="side-menu__time-box">
+            <svg class="side-menu__icon" width="20" height="20">
+                <use href="img/icons.svg#clock"></use>
+            </svg>
+
+            <div class="side-menu__group">
+                <p class="side-menu__title">Доставка</p>
+                <p class="side-menu__subtitle">11:00-23:00</p>
+            </div>
+        </div>
+
+        <a href="tel: +7 707 518 4004" class="side-menu__phone-box">
+            <svg class="side-menu__icon" width="20" height="20">
+                <use href="img/icons.svg#phone"></use>
+            </svg>
+
+            <span class="side-menu__title">+7 (707)-518-4004</span>
+        </a>
+
+    </div>
+</div>
 
 <main class="main" id="app">
 
@@ -79,10 +115,12 @@
                                 <input type="text" class="input-box__input" placeholder="Телефон">
                                 <label class="input-box__row">
                                     <input type="radio" class="input-box__radio" name="deliver-method">
+                                    <span class="input-box__custom-radio"></span>
                                     <div class="input-box__text">Доставка курьером</div>
                                 </label>
                                 <label class="input-box__row">
                                     <input type="radio" class="input-box__radio" name="deliver-method">
+                                    <span class="input-box__custom-radio"></span>
                                     <div class="input-box__text">Самовызов</div>
                                 </label>
                             </div>
@@ -102,26 +140,29 @@
                             </div>
                         </div>
 
-                        <div class="order-box__input-box input-box">
-                            <label class="input-box__label">Оплата заказа</label>
+<!--                        <div class="order-box__input-box input-box">-->
+<!--                            <label class="input-box__label">Оплата заказа</label>-->
 
-                            <div class="input-box__group">
-                                <label class="input-box__row">
-                                    <input type="radio" class="input-box__radio" name="deliver-method">
-                                    <div class="input-box__text">Наличными</div>
-                                </label>
-                                <label class="input-box__row">
-                                    <input type="radio" class="input-box__radio" name="deliver-method">
-                                    <div class="input-box__text">Банквоской картой</div>
-                                </label>
-                            </div>
-                        </div>
+<!--                            <div class="input-box__group">-->
+<!--                                <label class="input-box__row">-->
+<!--                                    <input type="radio" class="input-box__radio" name="deliver-method">-->
+<!--                                    <div class="input-box__text">Наличными</div>-->
+<!--                                </label>-->
+<!--                                <label class="input-box__row">-->
+<!--                                    <input type="radio" class="input-box__radio" name="deliver-method">-->
+<!--                                    <div class="input-box__text">Банквоской картой</div>-->
+<!--                                </label>-->
+<!--                            </div>-->
+<!--                        </div>-->
 
                         <div class="order-box__input-box input-box">
                             <label class="input-box__label">Комментарий к заказу</label>
 
                             <textarea class="input-box__textarea"></textarea>
                         </div>
+
+                        <button class="order-box__btn order-box__btn--bottom">ОФОРМИТЬ ЗАКАЗ</button>
+
                     </div>
 
                     <div class="order-box__details">
@@ -172,7 +213,7 @@
                                 Итого: {{totalPrice}} тг.
                             </div>
 
-                            <button class="order-box__btn" @click="sendOrder">ОФОРМИТЬ ЗАКАЗ</button>
+                            <button class="order-box__btn order-box__btn--top" @click="sendOrder">ОФОРМИТЬ ЗАКАЗ</button>
                         </div>
                     </div>
                 </div>

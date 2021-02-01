@@ -19,6 +19,8 @@
 
   &__container {
     @extend %container;
+    position: relative;
+    z-index: 2;
   }
 
   &__heading {
@@ -115,10 +117,75 @@
     &__tab {
       padding-bottom: 30px;
       overflow-x: auto;
+      overflow-y: hidden;
     }
 
     &__grid {
       justify-content: space-around;
+    }
+  }
+
+  @include respond(phone) {
+
+    &__heading {
+      font-size: 3.4rem;
+      margin-bottom: 30px;
+    }
+
+    &__title {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    &__wave {
+      transform: scale(3);
+
+      &--top {
+        top: -30px;
+      }
+
+      &--bottom {
+        bottom: -30px;
+      }
+    }
+
+    &__tab {
+      padding-bottom: 15px;
+    }
+
+    &__tablinks {
+      font-size: 1.4rem;
+      color: #DFDFDF;
+      padding: 6px 13px;
+      border: 1px solid #DFDFDF;
+      border-radius: 9px;
+
+      &:not(:last-child) {
+        margin-right: 10px;
+      }
+
+      &--active {
+        border-color: $main-color;
+        color: $main-color;
+
+        &:after {
+          display: none;
+        }
+      }
+    }
+
+    &__tabcontent {
+      padding-top: 45px;
+    }
+
+    &__grid {
+      display: block;
+    }
+
+    &__item {
+      &:not(:last-child) {
+        margin-bottom: 15px;
+      }
     }
   }
 }
