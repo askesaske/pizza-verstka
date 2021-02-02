@@ -102,6 +102,11 @@
     width: 100%;
   }
 
+  &__validation-text {
+    @include text-style(1.6rem, 400, #FF4040);
+    margin-bottom: 16px;
+  }
+
   @include respond(tab-land) {
     &__wave {
       bottom: -65px;

@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/style.css">
 
     <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="https://unpkg.com/imask"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 
 </head>
@@ -89,7 +90,7 @@
     </div>
 </div>
 
-<main class="main" id="app">
+<main class="main" id="menu">
     <section class="main__order-box order-box">
 
         <!--        <img src="img/wave-5.svg" alt="" class="order-box__wave">-->
@@ -102,6 +103,10 @@
 
             <form class="order-box__box">
 
+                <div class="order-box__validation-text">
+                    {{ validationError }}
+                </div>
+
                 <div class="order-box__row">
 
                     <div class="order-box__personal-info">
@@ -111,7 +116,12 @@
 
                             <div class="input-box__group">
                                 <input type="text" class="input-box__input" placeholder="Имя" v-model="name">
-                                <input type="text" class="input-box__input" placeholder="Телефон" v-model="phone">
+                                <input type="text"
+                                       class="input-box__input"
+                                       placeholder="Телефон"
+                                       maxlength="16"
+                                       v-model="phone"
+                                       id="phoneNumber">
                                 <label class="input-box__row">
                                     <input type="radio" class="input-box__radio" name="deliver-method" value="Доставка курьером" v-model="delivery">
                                     <span class="input-box__custom-radio"></span>
@@ -209,7 +219,7 @@
 
                                                 <div class="card-box__group">
                                                     <a href="order.html" class="card-box__btn" type="button"
-                                                            @click="removePizzaFromCard(key)">-
+                                                            @click="removePizzaFromCard(key, item.price)">-
                                                     </a>
                                                     <span class="card-box__count">{{item.amount}}</span>
                                                     <a href="order.html" class="card-box__btn" type="button"

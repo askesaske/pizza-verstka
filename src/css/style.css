@@ -907,6 +907,11 @@ h1, h2, h3, h4, h5, h6 {
     bottom: -92px;
     left: 0;
     width: 100%; }
+  .order-box__validation-text {
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: #FF4040;
+    margin-bottom: 16px; }
   @media only screen and (max-width: 1160px) {
     .order-box__wave {
       bottom: -65px; }
@@ -1092,13 +1097,16 @@ h1, h2, h3, h4, h5, h6 {
 .side-menu {
   position: fixed;
   top: 69px;
-  right: -150%;
+  right: -200%;
   width: 100vw;
   height: calc(100vh - 69px);
   background-color: rgba(37, 40, 46, 0.7);
   backdrop-filter: blur(10px);
   z-index: 2000;
-  padding-top: 20px; }
+  padding-top: 20px;
+  transition: all .3s; }
+  .side-menu--show {
+    right: 0; }
   .side-menu__container > *:not(:last-child) {
     margin-bottom: 25px; }
   .side-menu__link {

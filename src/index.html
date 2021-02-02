@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/style.css">
 
     <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="https://unpkg.com/imask"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 
 </head>
@@ -20,16 +21,16 @@
 
     <div class="header__container">
 
-        <a href="#" class="header__logo">
+        <a href="index.html" class="header__logo">
             <svg width="170" height="64">
                 <use href="img/icons.svg#logo"></use>
             </svg>
         </a>
 
         <nav class="header__navigation">
-            <a href="#" class="header__link">Преимущества</a>
-            <a href="#" class="header__link">Акции</a>
-            <a href="#" class="header__link">Меню</a>
+            <a href="#" class="header__link" id="advantages-link">Преимущества</a>
+            <a href="#" class="header__link" id="sales-link">Акции</a>
+            <a href="#" class="header__link" id="menu-link">Меню</a>
         </nav>
 
         <div class="header__time-box">
@@ -51,13 +52,16 @@
             <span class="header__title">+7 (707)-518-4004</span>
         </a>
 
-        <svg class="header__burger" width="30" height="18">
-            <use href="img/icons.svg#burger"></use>
-        </svg>
+        <a href="#" class="header__burger" id="burger">
+            <svg width="30" height="18">
+                <use href="img/icons.svg#burger"></use>
+            </svg>
+        </a>
+
     </div>
 </header>
 
-<div class="side-menu">
+<div class="side-menu" id="side-menu">
 
     <div class="side-menu__container">
 
@@ -107,14 +111,14 @@
                     что постоянное информационно-пропагандистское
                 </div>
 
-                <button class="welcome-section__btn button">Смотреть меню</button>
+                <button class="welcome-section__btn button" id="menu-link2">Смотреть меню</button>
             </div>
 
         </div>
 
     </section>
 
-    <section class="main__section advantages">
+    <section class="main__section advantages" id="advantages">
 
         <img src="img/waves-1.svg" alt="" class="advantages__wave advantages__wave--top">
         <img src="img/waves-2.svg" alt="" class="advantages__wave advantages__wave--bottom">
@@ -172,7 +176,7 @@
         </div>
     </section>
 
-    <section class="main__section sales">
+    <section class="main__section sales" id="sales">
 
         <div class="swiper-container sales__swiper">
 
@@ -244,20 +248,20 @@
 
     </section>
 
-    <section class="main__section menu" id="app">
+    <section class="main__section menu" id="menu">
 
         <img src="img/wave-3.svg" alt="" class="menu__wave menu__wave--top">
         <img src="img/wave-4.svg" alt="" class="menu__wave menu__wave--bottom">
 
         <div class="menu__container">
 
-            <div class="menu__cart cart">
+            <a href="order.html" class="menu__cart cart">
                 <svg width="40" height="35" class="cart__icon">
                     <use href="img/icons.svg#cart"></use>
                 </svg>
 
-                <div class="cart__count">1</div>
-            </div>
+                <div class="cart__count">{{ countOfItems }}</div>
+            </a>
 
             <h2 class="menu__heading">МЕНЮ</h2>
 
@@ -299,7 +303,9 @@
                                     <div class="card-box__price">{{ item.price }} ₸</div>
 
                                     <div class="card-box__group">
-                                        <button class="card-box__btn" type="button" @click="removePizza(item.name)" :disabled="item.amount === 0">-</button>
+                                        <button class="card-box__btn" type="button" @click="removePizza(item.name, item.price)"
+                                                :disabled="item.amount === 0">-
+                                        </button>
                                         <span class="card-box__count">{{ item.amount }}</span>
                                         <button class="card-box__btn" type="button"
                                                 @click="addPizza(item.name, item.desc, item.price)">+

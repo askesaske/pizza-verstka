@@ -27,7 +27,7 @@ function openCity(evt, cityName) {
 }
 
 new Vue({
-    el: '#app',
+    el: '#menu',
     data: {
         items: [
             {
@@ -70,10 +70,11 @@ new Vue({
         time: "",
         comment: "",
         error: null,
+        validationError: "",
     },
 
     methods: {
-        removePizza(name) {
+        removePizza(name, price) {
             let card = JSON.parse(localStorage.getItem('card')) || [];
             if (card[name]) {
                 if (card[name].amount > 0) {
@@ -83,11 +84,13 @@ new Vue({
                     delete card[name];
                 }
                 localStorage.setItem('card', JSON.stringify(card));
+                this.removeCount();
+                this.removePrice(price);
                 this.setAmount();
             }
         },
 
-        removePizzaFromCard(name) {
+        removePizzaFromCard(name, price) {
             let card = JSON.parse(localStorage.getItem('card')) || [];
             if (card[name]) {
                 if (card[name].amount > 0) {
@@ -97,6 +100,8 @@ new Vue({
                     delete card[name];
                 }
                 localStorage.setItem('card', JSON.stringify(card));
+                this.removeCount();
+                this.removePrice(price);
                 this.setAmountForCard();
             }
         },
@@ -115,6 +120,8 @@ new Vue({
                 card[name] = item;
             }
             localStorage.setItem('card', JSON.stringify(card));
+            this.addCount();
+            this.addPrice(price);
             this.setAmount();
         },
 
@@ -131,7 +138,33 @@ new Vue({
                 card[name] = item;
             }
             localStorage.setItem('card', JSON.stringify(card));
+            this.addCount();
+            this.addPrice(price);
             this.setAmountForCard();
+        },
+
+        addCount() {
+            let count = JSON.parse(localStorage.getItem('count')) || 0;
+            this.countOfItems = ++count;
+            localStorage.setItem('count', JSON.stringify(this.countOfItems));
+        },
+
+        removeCount() {
+            let count = JSON.parse(localStorage.getItem('count')) || 0;
+            this.countOfItems = --count;
+            localStorage.setItem('count', JSON.stringify(this.countOfItems));
+        },
+
+        addPrice(pr) {
+            let price = JSON.parse(localStorage.getItem('price')) || 0;
+            this.totalPrice = price + pr;
+            localStorage.setItem('price', JSON.stringify(this.totalPrice));
+        },
+
+        removePrice(pr) {
+            let price = JSON.parse(localStorage.getItem('price')) || 0;
+            this.totalPrice = price - pr;
+            localStorage.setItem('price', JSON.stringify(this.totalPrice));
         },
 
         setAmount() {
@@ -161,7 +194,7 @@ new Vue({
 
         sendOrder() {
 
-            if(this.name.length > 0 && this.phone.length > 0) {
+            if(this.name.length > 0 && this.phone.length === 16) {
                 fetch('https://pizzatest-7f32a-default-rtdb.firebaseio.com/orders.json', {
                     method: 'POST',
                     headers: {
@@ -176,6 +209,7 @@ new Vue({
                         time: this.time,
                         comment: this.comment,
                         listOfItems: this.cardItems,
+                        totalPrice: this.totalPrice,
                     }),
                 })
                     .then((response) => {
@@ -189,6 +223,15 @@ new Vue({
                         console.log(error);
                         this.error = error.message;
                     });
+                this.validationError = "";
+            } else if (this.name.length <= 0 && this.phone.length <= 0){
+                this.validationError = "Пожалуйста введите ваше Имя и Телефон";
+            } else if (this.name.length > 0 && this.phone.length !== 16) {
+                this.validationError = "Пожалуйста введите ваш Телефон в формате +7(XXX)XXX-XX-XX";
+                console.log(this.name.length + " " + this.phone.length);
+            } else if (this.name.length <= 0 && this.phone.length > 0) {
+                this.validationError = "Пожалуйста введите ваше Имя";
+                console.log(this.phone.length);
             }
         },
 
@@ -210,6 +253,100 @@ new Vue({
         // });
         this.setAmount();
         this.setAmountForCard();
+        this.totalPrice = JSON.parse(localStorage.getItem('price')) || 0;
     },
 });
 
+function getPosition(element) {
+    var xPosition = 0;
+    var yPosition = 0;
+
+    while (element) {
+        xPosition += (element.offsetLeft - element.scrollLeft + element.clientLeft);
+        yPosition += (element.offsetTop - element.scrollTop + element.clientTop);
+        element = element.offsetParent;
+    }
+
+    window.scroll({
+        top: yPosition - 65,
+        left: xPosition,
+        behavior: 'smooth'
+    });
+}
+
+const advantagesLink = document.getElementById('advantages-link');
+const salesLink = document.getElementById('sales-link');
+const menuLink = document.getElementById('menu-link');
+const menuLink2 = document.getElementById('menu-link2');
+
+function goToAdvantages() {
+    var element = document.getElementById('advantages');
+    getPosition(element);
+}
+
+function goToSales() {
+    var element = document.getElementById('sales');
+    getPosition(element);
+}
+
+function goToMenu() {
+    var element = document.getElementById('menu');
+    getPosition(element);
+}
+
+if(advantagesLink) {
+    advantagesLink.addEventListener('click', goToAdvantages);
+}
+
+if(salesLink) {
+    salesLink.addEventListener('click', goToSales);
+}
+
+if(menuLink) {
+    menuLink.addEventListener('click', goToMenu);
+}
+
+if(menuLink2) {
+    menuLink2.addEventListener('click', goToMenu);
+}
+
+const burger = document.getElementById('burger');
+const sideLinks = document.getElementsByClassName('side-menu__link');
+
+function openSide() {
+    document.getElementsByClassName('side-menu')[0].classList.add('side-menu--show');
+}
+
+function closeSide() {
+    document.getElementsByClassName('side-menu')[0].classList.remove('side-menu--show');
+}
+
+if(burger) {
+    burger.addEventListener('click', openSide);
+}
+
+if(sideLinks[0]) {
+    sideLinks[0].addEventListener('click', closeSide);
+}
+
+if(sideLinks[1]) {
+    sideLinks[1].addEventListener('click', goToAdvantages);
+    sideLinks[1].addEventListener('click', closeSide);
+}
+
+if(sideLinks[2]) {
+    sideLinks[2].addEventListener('click', goToSales);
+    sideLinks[2].addEventListener('click', closeSide);
+}
+
+if(sideLinks[3]) {
+    sideLinks[3].addEventListener('click', goToMenu);
+    sideLinks[3].addEventListener('click', closeSide);
+}
+
+var inputMask = document.getElementById('phoneNumber');
+var maskOptions = {
+    mask: '+{7}(000)000-00-00'
+};
+var mask = IMask(inputMask, maskOptions);
+mask.updateValue();
